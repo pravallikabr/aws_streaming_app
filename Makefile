@@ -4,6 +4,7 @@ init:
 
 
 
+
 # Use this only in case the state file is corrupted
 refresh: check-vars init
 	cd terraform/environments/$(env) && terraform refresh ../..
@@ -16,3 +17,11 @@ apply:
 
 destroy: check-vars
 	cd terraform/environments/$(env) && terraform destroy -auto-approve ../..
+
+check-vars:
+	echo "Checking if env is setup..."
+	@test ${env}
+	echo "env value is: ${env}"
+	echo "Checking if AWS_PROFILE is setup..."
+	@test ${AWS_PROFILE}
+	echo "AWS_PROFILE value is: ${AWS_PROFILE}"
