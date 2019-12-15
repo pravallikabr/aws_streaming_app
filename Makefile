@@ -1,6 +1,7 @@
 init:
 	cd terraform/environments/$(env) && rm -rf .terraform/
-	cd terraform/environments/$(env) && terraform init -backend=true -backend-config=backend.tfvars ../..
+	cd terraform\environments\$(env) && terraform init -backend=true -backend-config=backend.tfvars ../..
+
 
 
 
