@@ -31,7 +31,6 @@ jobs:
       - run:
           name: DEPLOY DEV
           command: |
-            cd ~/repo
             export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_DEV
             export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_DEV
             export env=${DEV_ENV}
