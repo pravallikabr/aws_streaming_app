@@ -16,7 +16,8 @@ jobs:
             sudo apt-get update
             sudo apt-get install docker -y
             sudo apt-get install unzip -y && wget https://releases.hashicorp.com/terraform/0.12.16/terraform_0.12.16_linux_amd64.zip
-            sudo unzip -d terraform_0.12.16_linux_amd64.zip  terraform /usr/local/bin/
+            sudo mkdir -p /usr/local/bin/terraform
+            sudo unzip terraform_0.12.16_linux_amd64.zip -d  /usr/local/bin/terraform
       - attach_workspace:
           at: *work_dir
       - run: AWS_ACCESS_KEY_ID_STG=$AWS_ACCESS_KEY_ID_DEV AWS_SECRET_ACCESS_KEY_STG=$AWS_SECRET_ACCESS_KEY_DEV
